@@ -7,6 +7,8 @@ import StaticCard from "@/components/staticCard";
 import fetchWeatherQuery from "@/graphql/queries/fetchWeatherQueries";
 import { Divider } from "@tremor/react";
 
+export const revalidate = 60;
+
 type Props = {
     params: {
         city: string;
@@ -28,8 +30,6 @@ async function WeatherPage({ params: { city, lat, long } }: Props) {
     })
 
     const result: Root = data.myQuery;
-
-    console.log(result)
 
     return (
         <div className="flex flex-col min-h-screen md:flex-row">
